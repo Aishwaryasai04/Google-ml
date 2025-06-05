@@ -1,0 +1,64 @@
+Linear Regression
+Linear Regression is a statistical tool used to find the relationship between variables. In ML concept, it finds the relationship between features and label.
+Linear Regression:
+              y’=b+w1x1
+Note: 
+y’: It is the predicted label.
+b: It is like y intercept in the algebraic expression. It is the bias of the model. It is calculated during the training.
+W1: It is the weight of the feature. Like the concept of slope m in algebraic equation for a line. Weight is a parameter of a model and is calculated during training.
+x1: The feature- Input
+ 
+ 
+
+Loss:
+A loss is a numerical metric that describes how wrong a model’s predictions are. It measures the distance between the predictions and the actual value of the labels. This would allow us to train the model to narrow down the gap (Loss).
+Distance of Loss:
+It does not show the direction but gives out the value or distance between the predictions and the actual value. If the prediction shows value 2 and the actual value is 5. It just shows 3 and not -3. So to get the loss we need to remove the signs by taking the absolute value and the square the difference between the actual value and the prediction.
+Types of loss:
+In linear regression, there are four main types of loss, which are outlined in the following table.
+Loss type	Definition	Equation
+L1 loss
+The sum of the absolute values of the difference between the predicted values and the actual values.	∑|actual value−predicted value|
+Mean absolute error (MAE)
+The average of L1 losses across a set of *N* examples.	1N∑|actual value−predicted value|
+L2 loss
+The sum of the squared difference between the predicted values and the actual values.	∑(actual value−predicted value)2
+Mean squared error (MSE)
+The average of L2 losses across a set of *N* examples.	1N∑(actual value−predicted value)2
+		
+
+
+The functional difference between the L1 and L2 is the squaring. When to calculate the loss of larger number, squaring makes it even larger and vice versa.
+When processing multiple examples, it is recommended to use MAE and MSE.
+Outliers: An outlier can also refer to how far off a model’s predictions are from the real values.
+
+MSE: This is model is closer to the outliers but further away from most of the other data.
+MAE: This model is closer the data and away from the outliers.
+
+Gradient Descent:
+It is a mathematical technique that iteratively finds the weight and bias that produces the model with the lowest loss. It finds the best weight and bias by reducing the loss for a number of user-defined iterations.
+ 
+
+Hyperparameters: These are the variables the control different aspects of training. There are three types of hyperparameters. In contrast, Parameters are the variables like the weight and bias, that are part of the model itself. In other words, hyperparameters are values that you control; parameters are values that the model calculates during the training.
+Three types of parameters are:
+1.	Learning Rate:
+Learning rate is a floating number that you set to influence how quickly the model converges. If the learning rate is too low, the model can take a lot of time to converge and if the learning rate is too high , the model just bounces around the weight and bias to minimize the loss. Therefore, the goal is to find the correct learning rate to converge.
+Each model and dataset will have its own ideal learning rate.
+
+2.	Batch Size:
+It is a hyperparameter that refers to the number of examples the model processes before updating its weight and bias. In a large dataset, the model does not read every example but take the average ones to fix the process. Two common techniques are Stochastic gradient descent and mini-batch stochastic gradient descent.
+In SGD: It uses only a single example per iteration. It works best but very noisy. Noise refers to variations during training that cause the loss to increase rather than decrease during an iteration. The term “Stochastic” indicates that the one example compromising each batch is chosen at random. It produces noise curve throughout the entire loss curve and not just near the convergence.
+In mini-batch SGD: It is a compromise between full batch and SGD. For N number of data points, the batch size can be any number greater than 1 and less than N. The model chooses the examples included in each batch at random, averages their gradients, and then updates the weights and bias once per iteration.
+3.	Epoch:
+During training, an epoch means that the model has processed every example in the training set once. For example, with 1000 examples and a mini batch of 100 examples. The model will take the 10 iterations to complete one epoch.
+Batch type	When weights and bias updates occur
+Full batch	After the model looks at all the examples in the dataset. For instance, if a dataset contains 1,000 examples and the model trains for 20 epochs, the model updates the weights and bias 20 times, once per epoch.
+Stochastic gradient descent	After the model looks at a single example from the dataset. For instance, if a dataset contains 1,000 examples and trains for 20 epochs, the model updates the weights and bias 20,000 times.
+Mini-batch stochastic gradient descent	After the model looks at the examples in each batch. For instance, if a dataset contains 1,000 examples, and the batch size is 100, and the model trains for 20 epochs, the model updates the weights and bias 200 times.
+
+
+
+
+
+
+
