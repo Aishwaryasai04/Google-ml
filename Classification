@@ -1,0 +1,27 @@
+CLASSIFICATION:
+It is a process where a threshold is created to ensure the prediction of a particular email is spam or not spam. This is known as classification. For example, for a score of 0.99 and 0.51 is way different but considered as a spam if the threshold is maintained at 0.5.
+
+Confusion Matrix
+It has matrix that is laid across Predicted positive and predicted negative to actual positive and actual negative
+	Actual Positive	Actual Negative
+Predicted Positive	True Positive (TP): A spam email correctly classified as a spam email. These are the spam messages automatically sent to the spam folder.	False Positive (FP): A not-spam email misclassified as spam. These are the legitimate emails that wind up in the spam folder.
+Predicted Negative	False negative (FN): A spam email misclassified as not-spam. These are spam emails that aren’t caught by the spam filter and make their way into the inbox.	True negative (TN): A not-spam email correctly classified as not-spam. These are the legitimate emails that are sent directly to the inbox.
+
+Accuracy: It is the proportion of all classifications that were correct, whether positive or negative.
+Accuracy=Correct Classifications/Total Classifications=TP+TN/TP+TN+FP+FN
+In the spam classification example, accuracy measures the fraction of all emails correctly classified.
+A perfect model would have zero false positive and zero false negatives and therefore an accuracy of 1.0% or 100%.
+Recall or True positive rate:
+The true positive rate or the proportion of all actual positives that were classified correctly as positive is known as Recall.
+Recall (TPR): correctly classified actual positives/all actual positives= TP/TP+FN
+A hypothetical perfect model would have zero false negatives and therefore a recall (TPR) of 1.0, which is to say, a 100% detection rate.
+
+False Positive Rate (FPR): 
+It is the proportion of all actual negatives that were classified incorrectly as positives, also known as probability of false alarm. 
+FPR; incorrectly classified actual negatives/all actual negatives= FP/FP+TN.
+A perfect model would have zero false positives and therefore a FPR of 0.0, which is to say, a 0% false alarm rate.
+
+Precision:
+It is the proportion of all the model’s positive classifications that are actually positive. 
+Precision= correctly classified actual positives/everything classified as positive = TP/ TP+FP
+Precision measures the fraction of emails classified as spam that were actually spam.
