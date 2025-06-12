@@ -1,0 +1,90 @@
+
+WORKING WITH NUMERICAL DATA:
+It means integers or floating-point values that behave like numbers. They are additive, Countable and so on.
+Examples:
+Temperature, weight, the number of deer venturing in a nature preserve.
+US postal code are not considered as numbers or represent mathematical relationships. They belong to categorical data.
+
+Let us see how the data is ingested,
+For example, a dataset of 5 columns is taken and only two of these columns (b, d) are the features in the models. When processing the example in row3, does the model simply grab the contents. The answer would be No. There is an array of floating-point values called a feature vector. It consists of the floating values comprising one example.
+However, feature vectors seldom use the dataset’s raw values. Instead, you must typically process the dataset’s values into representations that you model can better learn from.
+
+You must determine the best way to represent the raw dataset values as trainable values in the feature vector. This process is called feature engineering.
+The most common feature engineering techniques are:
+Normalization: Converting the numerical values into a standard range
+Binning (Bucketing): Converting numerical values into buckets of ranges.
+Before creating feature vectors, it is recommended to study numerical data in two ways:
+1.	Visualize your data in plots and graphs:
+2.	Statistically evaluate the data: Gathering statistics such as mean and median, standard deviation etc
+Finding outliers: Outliers is a distant value from other values in a feature or a label. This cause problems in model training. So, finding outliers is really important.
+
+After examining your data through statistical and visualization techniques, you should transform the data that will help your model train more effectively.
+Normalization:
+The goal of normalization is to transform features to be on a similar scale.
+For ex:
+Feature A: spans the range 154 to 232354635
+Feature B: Spans the range 1 to 5
+Here, Normalization spans range to 0 -1
+Benefits of Normalization:
+1.	Helps models converge more quickly during training
+2.	Helps models infer better predictions
+3.	Helps avoid the NaN(Not a number) trap when feature values are very high
+4.	Helps the model learn appropriate weights for each feature.
+Note: if you normalize a feature during training, you must also normalize that feature when making predictions.
+There are three types of normalization:
+1.	Linear Scaling: It is converting the floating-point values from their natural range into a standard range usually 0 to 1 or -1 to 1.
+Use the following formula to scale to the standard range 0 to 1, inclusive:
+x′=(x−xmin)/(xmax−xmin)
+where:
+•	x′ is the scaled value.
+•	x is the original value.
+•	xmin is the lowest value in the dataset of this feature.
+•	xmax is the highest value in the dataset of this feature.
+For example, consider a feature named quantity whose natural range spans 100 to 900. Suppose the natural value of quantity in a particular example is 300. Therefore, you can calculate the normalized value of 300 as follows:
+•	x = 300
+•	xmin = 100
+•	xmax = 900
+x' = (300 - 100) / (900 - 100)
+x' = 200 / 800
+x' = 0.25
+Linear Scaling is used when the following conditions are met:
+The lower and upper bounds don’t change much over time
+The feature contains few or no outliers, and those outliers aren’t much extreme
+The feature approximately uniformly distributes across its range. This is a histogram would show roughly even bars for most values
+Note: Most real-world features do not meet all the criteria for linear scaling. Z-score scaling is typically a better normalization choice than linear scaling.
+
+2.	Z score scaling: A z score is the number of standard deviations a value is from the mean. For example, a value that is 2 std deviations greater than mean is +2 z score. And less than 1.5 std deviation is -1.5 z score.
+Use the following formula to normalize a value, x, to its Z-score:
+x′=(x−μ)/σ
+where:
+•	x′ is the Z-score.
+•	x is the raw value; that is, x is the value you are normalizing.
+•	μ is the mean.
+•	σ is the standard deviation.
+For example, suppose:
+•	mean = 100
+•	standard deviation = 20
+•	original value = 130
+Therefore:
+  Z-score = (130 - 100) / 20
+  Z-score = 30 / 20
+  Z-score = +1.5
+Z score is a good choice when the data follows a normal distribution or a distribution somewhat like a normal distribution.
+
+3.	Log Scaling:
+Log scaling computes the logarithm of the raw value. In theory, Log could be any base: in practice, log scaling usually calculates the natural logarithm(ln)
+Use the following formula to normalize a value, x, to its log:
+x′=ln(x)
+where:
+•	x′ is the natural logarithm of x.
+•	original value = 54.598
+Therefore, the log of the original value is about 4.0:
+  4.0 = ln(54.598)
+ 
+4.	Clipping: It is a technique to minimize the influence of extreme outliers. In brief, clipping usually caps(reduces) the value of outliers to a specific max value.
+BINNING:
+It is a feature engineering that convers a group of numerical subranges into bins or buckets. In many, it converts the numerical data into categorical data.
+Binning is a good alternative to scaling or clipping when either of the following conditions are met:
+a.	The overall linear relationship in between the feature and the label is weak or non-existent,
+b.	When the feature values are clustered
+Quantile Bucketing: It creates bucketing boundaries such that the number of examples in each bucket is exactly or nearly equal. It hides the most outliers.
