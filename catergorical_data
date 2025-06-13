@@ -1,0 +1,20 @@
+WORKING WITH CATEGORICAL DATA:
+Categorical data has a specific set of possible values:
+1.	The different species of animals in a national park
+2.	The names of streets in a particular city
+3.	Whether or not an email is spam
+4.	The colors that house exteriors are pain
+5.	Binned numbers, which are described in the Working with numerical data module.
+
+Encoding: It means converting categorical or other data to numerical vectors that a model can train on. Model can only train on floating-point values and not strings.
+When a categorical feature has a low number of possible categories, you can encode it as a vocabulary. With a vocabulary encoding, the model treats each possible categorical value as a separate feature. During training, the model learns different weights for each category.
+
+The next step of vocabulary building is one hot encoding.
+
+Sparse Feature: A feature whose values are predominantly zero or empty is termed as sparse feature.
+It stores the positions of all the nonzero positions.
+
+Outliers in categorical data: Like the numerical data, this data also has outliers. For example, the car colors is mauve and avocado. This is considered outlier color. You can lump these colors into a single “catch all” category called out of vocabulary(oov). 
+Hashing is the less common way to reduce the number of dimensions.
+
+Feature crosses: It is created by crossing two or more categorical feature of the dataset. 
